@@ -1,0 +1,11 @@
+{
+  "port": 8080,
+
+  "development": {
+    "username": "Sean",
+    "password": null,
+    "database": "express_gallery",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  }
+}

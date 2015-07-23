@@ -1,0 +1,11 @@
+extends _layout
+
+block content
+  form(action="/gallery" name="newphoto" method="POST")
+    input(placeholder='Author' name='author')
+    br
+    input(placeholder='Link' name='url')
+    br
+    input(placeholder='Description' name='description')
+    br
+    button Submit Photo

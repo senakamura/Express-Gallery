@@ -1,0 +1,15 @@
+extends _layout
+
+block content
+  form(action="/gallery/#{id}" name="newphoto" method="POST")
+    img(src="#{link}")
+    br
+    input(value='#{author}' name='author')
+    br
+    input(value='#{link}' name='url')
+    br
+    input(value='#{caption}' name='description')
+    br
+    input(type="hidden" name="_method" value="PUT")
+    button Edit Photo
+    button Delete Photo
