@@ -1,0 +1,7 @@
+@media (max-width: 480px) {
+  .imgBox {
+    width: 100%;
+    margin: 0;
+    border: none !important;
+  }
+}

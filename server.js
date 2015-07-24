@@ -35,6 +35,7 @@ app.get('/', function (req, res){
     .then(function(image){
       res.render('gallery', {images: image});
     });
+
 });
 
 app.get('/new_photo', function (req, res){

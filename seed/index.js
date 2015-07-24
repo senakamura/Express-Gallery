@@ -7,14 +7,14 @@ models.sequelize
   .then(function(){
     // stuffs
     var galleryData = [];
-    var totalEntries = faker.random.number({min:1, max: 10});
-    var categories = ['food', 'people', 'sports', 'cats'];
+    var totalEntries = faker.random.number({min:10, max: 15});
+    var categories = ['food', 'people', 'sports', 'cats', 'transport'];
     for (var i = 0; i < totalEntries; i++){
       var randomCat = faker.random.arrayElement(categories);
       galleryData.push(
         {
           author: faker.name.findName(),
-          link: faker.image.imageUrl(300, 200, randomCat),
+          link: faker.image.imageUrl(1600, 1200, randomCat),
           description: faker.lorem.sentences()
         }
         );

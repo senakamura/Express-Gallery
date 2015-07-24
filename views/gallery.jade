@@ -1,9 +1,22 @@
 extends _layout
 
 block content
-  each image in images
-    .imgWrapper
-      .imgBox
+  each image, index in images
+    if image.id === 1
+      .topimage
         img(src="#{image.link}")
-      .imgCaption
+
+      .clear
+    else
+      .imgBox
+        a(href="/gallery/#{image.id}")
+          img(src="#{image.link}")
         p #{image.description}
+
+//- each number, index in array
+//-   if (index % 2 === 0)
+//-     li (class="even")= number
+//-   else
+//-     li (class="odd")= number
+//-   if (index % 3 === 0)
+//-     br
