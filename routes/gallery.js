@@ -13,13 +13,6 @@ router.use(function (req, res, next){
 });
 
 router.route('/')
-  .get(function (req, res){
-    Gallery
-      .findAll()
-      .then(function(image){
-        res.render('gallery', {images: image});
-      });
-  })
   .post(function (req, res){
     Gallery
       .create({
@@ -28,11 +21,21 @@ router.route('/')
         description: req.body.description
       })
       .then(function(){
-        return res.redirect('/gallery');
+        return res.redirect('/');
       });
   });
 
 router.route('/:id')
+  .get(function (req, res){
+    var id = req.params.id;
+    Gallery
+      .findOne({
+        where: {'id': id}
+      })
+    .then(function(image){
+      res.render('single', {image: image.link, caption: image.description});
+    });
+  })
   .put(function (req, res){
     var id = req.params.id;
     Gallery
@@ -47,6 +50,37 @@ router.route('/:id')
       });
     })
     .then(function (){
-      return res.redirect('/gallery');
+      return res.redirect('/');
     });
+  })
+  .delete(function (req, res){
+    var id = req.params.id;
+    Gallery
+      .findOne({
+        where: {'id': id}
+      })
+      .then(function (image){
+        image.destroy({ force: true});
+      })
+      .then(function(){
+        return res.redirect('/');
+      });
+  });
+
+router.route('/:id/edit')
+  .get(function (req, res){
+    var id = req.params.id;
+    Gallery
+      .findOne({
+        where: {'id': id}
+      })
+      .then(function (image){
+        res.render('edit',
+          {
+            author: image.author,
+            link: image.link,
+            caption: image.description,
+            id: id
+          });
+      });
   });

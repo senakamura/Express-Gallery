@@ -1,0 +1,44 @@
+
+.clear {
+  clear: both;
+}
+
+#header {
+  width: 100%;
+  margin-top: 5em;
+  border-top: dotted 1px grey;
+  text-align: center;
+}
+
+#titletext, #headtext {
+  margin: 0 auto;
+  display: inline-block;
+}
+
+#titletext {
+  width: 35%
+}
+
+h1 {
+  font-size: 4em;
+  font-size: 5vw;
+  font-family: 'arial';
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+
+#headtext {
+  width: 25%;
+  border-left: dotted 1px grey;
+  margin-left: 1em;
+  padding: 10px;
+}
+
+#headtext p {
+  font-family: 'arial';
+}
+
+#container {
+  width: 100%;
+}

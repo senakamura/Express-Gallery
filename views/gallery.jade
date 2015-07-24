@@ -2,7 +2,8 @@ extends _layout
 
 block content
   each image in images
-    .imgBox
-      img(src="#{image.link}")
-    .imgCaption
-      p #{image.description}
+    .imgWrapper
+      .imgBox
+        img(src="#{image.link}")
+      .imgCaption
+        p #{image.description}

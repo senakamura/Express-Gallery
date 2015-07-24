@@ -1,8 +1,9 @@
 extends _layout
 
 block content
-  .imgBox
-    img(src="#{image}")
-  .imgCaption
-    p= caption
+  .imgWrapper
+    .imgBox
+      img(src="#{image}")
+    .imgCaption
+      p= caption
 

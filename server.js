@@ -30,50 +30,16 @@ app.set('view engine', 'jade');
 app.set('views', './views');
 
 app.get('/', function (req, res){
-  res.render('index');
-});
-
-app.get('/gallery/:id', function (req, res){
-  var id = req.params.id;
   Gallery
-    .findOne({
-      where: {'id': id}
-    })
+    .findAll()
     .then(function(image){
-      res.render('single', {image: image.link, caption: image.description});
+      res.render('gallery', {images: image});
     });
 });
 
 app.get('/new_photo', function (req, res){
   res.render('new');
 });
-
-app.get('/gallery/:id/edit', function (req, res){
-  var id = req.params.id;
-  Gallery
-    .findOne({
-      where: {'id': id}
-    })
-    .then(function (image){
-      res.render('edit',
-        {
-          author: image.author,
-          link: image.link,
-          caption: image.description,
-          id: id
-        });
-    });
-});
-
-// app.put('/gallery/:id/edit', function (req, res){
-//   var id = req.params.id;
-//   Gallery
-//     .updateAttributes({
-//       author: req.body.author,
-//       link: req.body.url,
-//       description: req.body.description
-//     });
-// });
 
 app.use('/gallery', require('./routes/gallery'));
 
