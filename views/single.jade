@@ -6,7 +6,7 @@ block content
       img(src="#{single.link}")
     .imgCaption
       p= single.description
-
+    a(href="/gallery/#{single.id}/edit" class="button tiny") EDIT
   .imgColumn
     each image, index in sideImages
       .imgBox
