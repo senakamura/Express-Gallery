@@ -1,17 +1,46 @@
 extends _layout
 
-block content
-  each image, index in images
-    if image.id === 1
-      .topimage
-        img(src="#{image.link}")
 
-      .clear
-    else
-      .imgBox
-        a(href="/gallery/#{image.id}")
-          img(src="#{image.link}")
-        p #{image.description}
+mixin (id, link, desc)
+
+block content
+  .topimage
+    a(href="/gallery/#{topImg.id}")
+      img(src="#{topImg.link}")
+    p #{topImg.description}
+  each image, index in images
+    if (image.id % 3 === 0)
+    .imgBox
+      a(href="/gallery/#{image.id}")
+        img(src="#{image.link}")
+      p #{image.descrirption}
+    //- .imgBox
+    //-   a(href="/gallery/#{image.id}")
+    //-     img(src="#{image.link}")
+    //-   p #{image.description}
+    //- .imgBox
+    //-   a(href="/gallery/#{image.id}")
+    //-     img(src="#{image.link}")
+    //-   p #{image.description}
+  .clear
+
+
+
+
+
+
+
+  //- each image, index in images
+  //-   if image.id === 1
+  //-     .topimage
+  //-       img(src="#{image.link}")
+
+  //-     .clear
+  //-   else
+  //-     .imgBox
+  //-       a(href="/gallery/#{image.id}")
+  //-         img(src="#{image.link}")
+  //-       p #{image.description}
 
 //- each number, index in array
 //-   if (index % 2 === 0)

@@ -32,8 +32,9 @@ app.set('views', './views');
 app.get('/', function (req, res){
   Gallery
     .findAll()
-    .then(function(image){
-      res.render('gallery', {images: image});
+    .then(function(images){
+      var topImg = images.shift();
+      res.render('gallery', {topImg: topImg, images: images});
     });
 
 });
