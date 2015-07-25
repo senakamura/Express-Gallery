@@ -2,8 +2,16 @@ extends _layout
 
 block content
   .imgWrapper
-    .imgBox
-      img(src="#{image}")
+    .singleImg
+      img(src="#{single.link}")
     .imgCaption
-      p= caption
+      p= single.description
+
+  .imgColumn
+    each image, index in sideImages
+      .imgBox
+        a(href="/gallery/#{image.id}")
+          img(src="#{image.link}")
+        p #{image.description}
+
 

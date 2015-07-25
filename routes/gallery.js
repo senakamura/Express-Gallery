@@ -32,8 +32,18 @@ router.route('/:id')
       .findOne({
         where: {'id': id}
       })
-    .then(function(image){
-      res.render('single', {image: image.link, caption: image.description});
+    .then(function(single){
+      Gallery.findAll()
+        .then(function(images){
+          var sideImages = [];
+          for (var i = 0; i < 3; i++){
+            var num = Math.floor(Math.random() * images.length);
+            sideImages.push(images[num]);
+          }
+          res.render('single', {
+            single: single,
+            sideImages: sideImages});
+        });
     });
   })
   .put(function (req, res){

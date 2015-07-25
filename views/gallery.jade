@@ -6,23 +6,15 @@ mixin (id, link, desc)
 block content
   .topimage
     a(href="/gallery/#{topImg.id}")
-      img(src="#{topImg.link}")
+      .imgcrop(style="background-image:url(#{topImg.link})")
     p #{topImg.description}
-  each image, index in images
-    if (image.id % 3 === 0)
-    .imgBox
-      a(href="/gallery/#{image.id}")
-        img(src="#{image.link}")
-      p #{image.descrirption}
-    //- .imgBox
-    //-   a(href="/gallery/#{image.id}")
-    //-     img(src="#{image.link}")
-    //-   p #{image.description}
-    //- .imgBox
-    //-   a(href="/gallery/#{image.id}")
-    //-     img(src="#{image.link}")
-    //-   p #{image.description}
   .clear
+  ul(class="small-block-grid-1 medium-block-grid-2 large-block-grid-3")
+    each image, index in images
+      li
+        a(href="/gallery/#{image.id}")
+          img(src="#{image.link}")
+        p #{image.description}
 
 
 
