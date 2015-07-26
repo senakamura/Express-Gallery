@@ -6,6 +6,9 @@ var models = require('../models');
 
 var Gallery = models.Gallery;
 
+var passport = require('passport');
+var LocalStrategy = require('passport-local').Strategy;
+
 module.exports = router;
 
 router.use(function (req, res, next){
@@ -78,6 +81,7 @@ router.route('/:id')
   });
 
 router.route('/:id/edit')
+  .get(isAuthenticated)
   .get(function (req, res){
     var id = req.params.id;
     Gallery
@@ -94,3 +98,12 @@ router.route('/:id/edit')
           });
       });
   });
+
+function isAuthenticated (req, res, next){
+  if(req.isAuthenticated()){
+    return next();
+  }
+  res.redirect('/login');
+  // console.log(req.isAuthenticated());
+  // next();
+}

@@ -23,11 +23,14 @@
     "express-session": "^1.11.3",
     "jade": "^1.11.0",
     "method-override": "^2.3.4",
+    "passport": "^0.2.2",
+    "passport-local": "^1.0.0",
     "pg": "^4.4.0",
     "pg-hstore": "^2.3.2",
     "sequelize": "^3.4.1"
   },
   "devDependencies": {
+    "crypto": "0.0.3",
     "faker": "^3.0.0"
   }
 }

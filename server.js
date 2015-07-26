@@ -3,11 +3,18 @@ var config = require('./config/config.json');
 var express = require('express');
 var app = express();
 
+var session = require('express-session');
+
 var models = require('./models');
 
 var Gallery = models.Gallery;
 
+var User = models.User;
+
 var bodyParser = require('body-parser');
+
+var passport = require('passport');
+var LocalStrategy = require('passport-local').Strategy;
 
 app.use(bodyParser.urlencoded());
 
@@ -28,6 +35,20 @@ app.use(express.static(path.resolve(__dirname, 'public')));
 
 app.set('view engine', 'jade');
 app.set('views', './views');
+
+app.use(session({secret: 'tacocat', cookie: {maxAge: 60000}}));
+
+require('./app/auth.js')(app);
+
+app.get('/login', function (req, res){
+  res.render('login');
+});
+
+app.post('/login',
+  passport.authenticate('local', {
+    successRedirect: '/',
+    failureRedirect: '/login'
+}));
 
 app.get('/', function (req, res){
   Gallery

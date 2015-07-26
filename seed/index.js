@@ -21,4 +21,17 @@ models.sequelize
     }
     return models.Gallery
     .bulkCreate(galleryData);
+  })
+  .then(function (){
+    return models.User
+      .bulkCreate([
+        {
+          username: 'sean',
+          password: 'rajah'
+        },
+        {
+          username: 'sumgai',
+          password: 'dimsum'
+        }
+      ]);
   });
