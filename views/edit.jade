@@ -1,24 +1,23 @@
 extends _layout
 
 block content
-  form(action="/gallery/#{id}" name="newphoto" method="POST")
-    .editImg
-      img(src="#{link}")
+  .editImg
+    img(src="#{link}")
+  #bigassbox
+    form(action="/gallery/#{id}" name="newphoto" method="POST" class="editform")
+      .fancy-input
+        label Author
+        input(value='#{author}' name='author')
 
-    .fancy-input
-      label Author
-      input(value='#{author}' name='author')
-      br
-      label URL
-      input(value='#{link}' name='url')
-      br
-      label Description
-      input(value='#{caption}' name='description')
-      br
-      input(type="hidden" name="_method" value="PUT")
-      .clear
-      button(class="button tiny") Edit Photo
+        label URL
+        input(value='#{link}' name='url')
 
-      form(action="/gallery/#{id}" name="deletephoto" method="POST")
-        input(type="hidden" name="_method" value="DELETE")
-        button(class="button tiny") Delete Photo
+        label Description
+        input(value='#{caption}' name='description')
+
+        input(type="hidden" name="_method" value="PUT")
+        button(class="button tiny") Edit Photo
+
+    form(action="/gallery/#{id}" name="deletephoto" method="POST" class="deletebutton")
+      input(type="hidden" name="_method" value="DELETE")
+      button(class="button tiny") Delete Photo

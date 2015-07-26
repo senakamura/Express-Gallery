@@ -25,10 +25,16 @@
   #headtext {
     display: none;
   }
+  .imgcrop {
+    height: 25%;
+  }
   .imgWrapper {
     width: 100%;
   }
   .imgColumn {
     display: none;
+  }
+  #bigassbox {
+    width: 100%;
   }
 }

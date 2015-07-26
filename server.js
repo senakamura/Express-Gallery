@@ -31,7 +31,7 @@ app.set('views', './views');
 
 app.get('/', function (req, res){
   Gallery
-    .findAll()
+    .findAll({order: 'id ASC'})
     .then(function(images){
       var topImg = images.shift();
       res.render('gallery', {topImg: topImg, images: images});

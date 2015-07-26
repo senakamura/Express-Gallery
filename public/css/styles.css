@@ -115,6 +115,20 @@ h1 {
   float: left;
 }
 
+#bigassbox {
+  width: 40%;
+  display: inline-block;
+}
+
+.editform {
+  width: 100%;
+}
+
+.deletebutton {
+  float: left;
+  margin-left: 1em;
+}
+
 .fancy-input {
   float: left;
   margin-left: 1em;
@@ -130,7 +144,7 @@ h1 {
   display: block;
   width: 100%;
   min-width: 200px;
-  max-width: 400px;
+  max-width: 90%;
 
   font-size: $font-size;
   transform: translate3d(0,0,0);
