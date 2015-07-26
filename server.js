@@ -51,20 +51,27 @@ app.post('/login',
 }));
 
 app.get('/', function (req, res){
+  console.log(req.user);
   Gallery
     .findAll({order: 'id ASC'})
     .then(function(images){
       var topImg = images.shift();
-      res.render('gallery', {topImg: topImg, images: images});
+      res.render('gallery', {
+        username: req.user || null,
+        topImg: topImg,
+        images: images});
     });
 
 });
 
-app.get('/new_photo', function (req, res){
-  res.render('new');
+app.get('/logout', function (req, res){
+  req.logout();
+  res.redirect('/');
 });
 
 app.use('/gallery', require('./routes/gallery'));
+
+app.use('/new_photo', require('./routes/newphoto'));
 
 var server = app.listen(config.port, displayServer);
 

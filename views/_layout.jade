@@ -1,3 +1,6 @@
+mixin btn (options)
+  a.button.radius(href="#{options.href}")= options.value
+
 html
   head
     title Express Gallery
@@ -7,10 +10,18 @@ html
     link(href="/css/styles.css", rel="stylesheet")
     link(href="/css/mobile.css", rel="stylesheet")
   body
+    #buttonbar
+      if !username
+        +btn({value:'Login', href:'/login'})
+      else
+        +btn({value:'New Photo', href:'/new_photo'})
+        +btn({value:'Logout', href:'/logout'})
     #header
       #titletext
         a(href="/")
           h1 _Architekt
+
+
       #headtext
         p Some text goes here blah blah blah blah blah bkag
 
