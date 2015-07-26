@@ -12,7 +12,12 @@ var LocalStrategy = require('passport-local').Strategy;
 module.exports = router;
 
 router.use(function (req, res, next){
-  next();
+  console.log(req);
+  if (req.method.toUpperCase() !== 'GET'){
+    return isAuthenticated(req, res, next);
+  }else{
+    next();
+  }
 });
 
 router.route('/')
