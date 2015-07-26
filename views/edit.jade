@@ -4,17 +4,21 @@ block content
   form(action="/gallery/#{id}" name="newphoto" method="POST")
     .editImg
       img(src="#{link}")
-    br
+
     .fancy-input
+      label Author
       input(value='#{author}' name='author')
       br
+      label URL
       input(value='#{link}' name='url')
       br
+      label Description
       input(value='#{caption}' name='description')
       br
       input(type="hidden" name="_method" value="PUT")
-    button(class="button tiny") Edit Photo
+      .clear
+      button(class="button tiny") Edit Photo
 
-    form(action="/gallery/#{id}" name="deletephoto" method="POST")
-      input(type="hidden" name="_method" value="DELETE")
-      button(class="button tiny") Delete Photo
+      form(action="/gallery/#{id}" name="deletephoto" method="POST")
+        input(type="hidden" name="_method" value="DELETE")
+        button(class="button tiny") Delete Photo

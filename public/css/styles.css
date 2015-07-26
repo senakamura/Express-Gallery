@@ -13,7 +13,9 @@ p {
 #header {
   width: 90%;
   border-top: dotted 1px #dddddd;
-  margin: 5em auto;
+  margin: 0 auto;
+  margin-top: 5em;
+  margin-bottom: 1em;
 }
 
 #titletext, #headtext {
@@ -60,7 +62,7 @@ h1 {
   background-repeat: no-repeat;
   background-size: cover;
   display: block;
-  height: 75%;
+  height: 50%;
 }
 
 .topimage {
@@ -114,6 +116,9 @@ h1 {
 }
 
 .fancy-input {
+  float: left;
+  margin-left: 1em;
+
   $background: #fff;
   $focus-color: #FF0000;
   $focus-color-valid: #3cf;
@@ -131,13 +136,13 @@ h1 {
   transform: translate3d(0,0,0);
 }
 
-input {
+.fancy-input input {
   width: 100%;
   position: relative;
   top: 0;
   left: 0;
   margin-top: 0;
-  margin-bottom: 0;
+  margin-bottom: 1em;
   padding-left: $left-padding;
   z-index: 1;
 
